@@ -1,0 +1,76 @@
+﻿@model List<Avanage.SorterFeelLite.UI.Data.UserRoleView>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Manage Users</h2>
+
+<a href="javascript:addUserWindow()"><span class="glyphicon glyphicon-plus"></span> Add User</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Username</th>
+            @*<th>Status</th>
+                <th>Last Login On</th>*@
+            <th>Roles</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            var user = Model[i];
+            <tr>
+                <td style="width:1%">@(i + 1).</td>
+                <td>@user.UserName</td>
+                @*<td>@true</td>
+                    <td>@user.</td>*@
+                <td>@string.Join(", ", user.Roles.Select(r => r.Name))</td>
+                <td>@(user.IsActive ? "Active" : "Inactive")</td>
+                <td>
+                    <a href="javascript:editUserWindow('@user.UserId','@user.UserName')">Edit</a> | 
+                    <a href="javascript:editUserRolesWindow('@user.UserId','@user.UserName')">Edit Roles</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@await Html.PartialAsync("Dialog")
+
+<script type="text/javascript">
+    function editUserRolesWindow(userId, userName) {
+        $('#app-dialog-title').text(userName + ' - Roles');
+        $('#app-dialog-content').html(getIframe('@Url.Action(controller: "manageusers", action: "updateroles")?userid=' + userId));
+
+        $('#app-dialog').modal({});
+    }
+
+    function editUserWindow(userId, userName) {
+        $('#app-dialog-title').text(userName + ' - Edit');
+        $('#app-dialog-content').html(getIframe('@Url.Action(controller: "manageusers", action: "edit")?userid=' + userId));
+
+        $('#app-dialog').modal({});
+    }
+
+    function addUserWindow() {
+        $('#app-dialog-title').text('User - Add New');
+        $('#app-dialog-content').html(getIframe('@Url.Action(controller: "manageusers", action: "add")'));
+
+        $('#app-dialog').modal({});
+    }
+
+    function getIframe(url) {
+        let iframe = '<iframe class="dialog-iframe" src="{url}" scrolling="no"></iframe>';
+        return iframe.replace('{url}', url);
+    }
+
+    $(document).ready(function () {
+        $('#app-dialog').on('hidden.bs.modal', function (e) {
+            window.history.go(0);
+        });
+    });
+</script>

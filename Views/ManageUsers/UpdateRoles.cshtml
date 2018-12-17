@@ -1,0 +1,43 @@
+﻿@model Avanage.SorterFeelLite.UI.Controllers.UpdateRolesView
+
+@{
+    ViewData["Title"] = "UpdateRoles";
+    Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+    PageInfo pageInfo = ViewBag.PageInfo;
+}
+
+<div class="modal-dialog-content-title">Edit User Roles</div>
+
+@if (pageInfo != null)
+{
+    <div style="position: absolute; right: 0; top: 0" class="alert @(pageInfo.InfoType == PageInfo.ERROR ? "alert-danger" : "alert-success")">
+        @pageInfo.Message
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateRoles">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group" style="height:300px;overflow-y:auto">
+                <input type="hidden" value="@Model.UserId" name="userId" />
+                <table class="table table-striped">
+                    <tbody>
+                        @foreach (var role in Model.Roles)
+                        {
+                            <tr>
+                                <td><input name="roleids" type="checkbox" @(Model.UserRoles.Contains(role.Name) ? "checked" : "") value="@role.Id" /></td>
+                                <td>@role</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

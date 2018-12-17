@@ -1,0 +1,45 @@
+﻿@model List<IdentityRole>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Manage Roles</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Role Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var role = Model[i];
+            <tr>
+                <td style="width:1%">@(i + 1).</td>
+                <td>@role.Name</td>
+                <td><a href="javascript:showRoleUsers('@role.Id', '@role.Name');">View users</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@await Html.PartialAsync("Dialog")
+
+<script type="text/javascript">
+
+    function showRoleUsers(roleId, roleName) {
+        $('#app-dialog-title').text(roleName + ' - Users');
+        $('#app-dialog-content').html(getIframe('@Url.Action(controller: "manageroles", action: "users")?rolename=' + roleName));
+
+        $('#app-dialog').modal({});
+    }
+
+    function getIframe(url) {
+        let iframe = '<iframe class="dialog-iframe" src="{url}" scrolling="no"></iframe>';
+        return iframe.replace('{url}', url);
+    }
+</script>

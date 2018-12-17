@@ -1,0 +1,36 @@
+﻿@model System.Security.Claims.ClaimsPrincipal
+
+@{
+    var currentUser = Model ?? new System.Security.Claims.ClaimsPrincipal();
+    var adminOfficer = Roles.ADMIN_OFFICER.ToString().Replace("_", " ");
+    var superAdminOfficer = Roles.ADMIN_SUPERVISOR.ToString().Replace("_", " ");
+}
+
+<style type="text/css">
+    .list-group-item {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .list-group-item:first-child {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+        .list-group-item:last-child {
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+</style>
+
+<br />
+
+<div style="background: #eee; height: 450px">
+
+    @if (currentUser.IsInRole(adminOfficer) || currentUser.IsInRole(superAdminOfficer))
+    {
+        <div class="list-group">
+            <a asp-area="" asp-controller="manageusers" asp-action="Index" class="list-group-item list-group-item-action">Manage Users</a>
+            <a asp-area="" asp-controller="manageroles" asp-action="Index" class="list-group-item list-group-item-action">Manage Roles</a>
+        </div>
+    }
+
+</div>

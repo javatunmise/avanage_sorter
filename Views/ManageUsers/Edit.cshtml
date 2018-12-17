@@ -1,0 +1,55 @@
+﻿@model Avanage.SorterFeelLite.UI.Models.UsersViewModels.AddUserViewModel
+@{
+    ViewData["Title"] = "Edit User";
+    Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+    PageInfo pageInfo = ViewBag.PageInfo;
+}
+
+<div>
+    <div class="modal-dialog-content-title">Edit User</div>
+
+    @if (pageInfo != null)
+    {
+        <div style="position: absolute; right: 0; top: 0" class="alert @(pageInfo.InfoType == PageInfo.ERROR ? "alert-danger" : "alert-success")">
+            @pageInfo.Message
+        </div>
+    }
+
+    <form asp-controller="manageusers" asp-action="edit" asp-route-userid='@(ViewBag.UserId ?? "")'>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="text-right" style="width:200px"><b>Username</b>:</td>
+                    <td>@Model.Username</td>
+                </tr>
+                <tr>
+                    <td class="text-right"><b>Email</b>:</td>
+                    <td>@Model.Email</td>
+                </tr>
+                <tr>
+                    <td class="text-right"><b>Phone Number</b>:</td>
+                    <td>@Model.PhoneNumber</td>
+                </tr>
+                <tr>
+                    <td class="text-right"><b>Activate</b>:</td>
+                    <td>
+                        <input type="checkbox" asp-for="IsActive" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-default btn-primary" />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </form>
+</div>

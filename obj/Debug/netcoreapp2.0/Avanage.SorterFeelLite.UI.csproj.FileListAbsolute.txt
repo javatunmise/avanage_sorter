@@ -1,0 +1,12 @@
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\bin\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.dll
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\bin\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.deps.json
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\bin\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.runtimeconfig.json
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\bin\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.runtimeconfig.dev.json
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\bin\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.pdb
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\obj\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.csproj.CoreCompileInputs.cache
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\obj\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.AssemblyInfoInputs.cache
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\obj\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.AssemblyInfo.cs
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\obj\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.dll
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\obj\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.pdb
+C:\my projects\avanage\app\Avange.SorterFeelLite.UI\Avanage.SorterFeelLite.UI\obj\Debug\netcoreapp2.0\Avanage.SorterFeelLite.UI.csprojResolveAssemblyReference.cache

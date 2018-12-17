@@ -1,0 +1,30 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewData["Title"] = "Role Users";
+    Layout = "~/Views/Shared/_LayoutDialog.cshtml";
+    PageInfo pageInfo = ViewBag.PageInfo;
+}
+
+<div class="modal-dialog-content-title">Role Users</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var i = 0; i < Model.Count(); i++)
+        {
+        var role = Model.ElementAt(i);
+        <tr>
+            <td style="width:1%">@(i+1).</td>
+            <td>
+                @role
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
